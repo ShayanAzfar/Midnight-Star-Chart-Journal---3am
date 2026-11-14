@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(circle at bottom, #101529 0%, #06070e 100%);
+    color: #fff;
+    position: relative;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* transform: translateX(50%); */
+    position: absolute;
+    top: 80px;
+    /* left: 28px; */
+    z-index: 10;
+    pointer-events: none;
+}
+
+.header h1{
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 12px rgba(130, 185, 255, 0.5);
+}
+
+.header p {
+    font-size: 0.8rem;
+    color: gray;
+    margin-top: 4px;
+}
+
+.canvas {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.star {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8),
+                0 0 22px 6px rgba(130, 185, 228, 0.5);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: twinkle 3s infinite alternate ease-in-out;
+}
+
+.star:hover {
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 15px 4px #fff,
+                0 0 30px 10px rgba(164, 136, 248, 0.9);
+    z-index: 20;
+}
+
+.star::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(12, 17, 31, 0.9);
+    border: 1px solid #3c4f80;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+.star:hover::after {
+    opacity: 1;
+}
+@keyframes twinkle {
+    0% { opacity: 0.5;}
+    100% { opacity: 1;}
+}
+.bottom-bar {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    background: rgba(12, 17, 31, 0.8);
+    backdrop-filter: blur(8px);
+    padding: 10px 16px;
+    border: 1px solid #3c4f80;
+    border-radius: 8px;
+    z-index: 30;
+    width: 90%;
+    max-width: 600px;
+}
+.bottom-bar input:focus {
+    border-color: #5793e6;
+}
+#title {
+    border: 1px solid #5793e6;
+    border-radius: 8px;
+    background: rgba(12, 17, 31, 0.8);
+    color: #fff;
+    padding: 10px 16px;
+    width: 35%;
+}
+#thought {
+    border: 1px solid #5793e6;
+    border-radius: 8px;
+    background: rgba(12, 17, 31, 0.8);
+    color: #fff;
+    padding: 10px 16px;;
+    width: 65%;
+}
+
+.bottom-bar button {
+    background: #1b2a4d;
+    color: #fff;
+    border: 1px solid #5793e6;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.bottom-bar button:hover{
+    background: #5793e6;
+    color: #000;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(12, 17, 31, 0.8);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+}
+
+.modal-hidden {
+    display: none;
+}
+
+.modal-card {
+    position: relative;
+    background: #101529;
+    border: 1px solid #5793e6;
+    box-shadow: 0 0 25px rgba(60, 130, 240, 0.2);
+    border-radius: 16px;
+    padding: 28px;
+    width: 90%;
+    max-width: 420px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: #8c9bb8;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.close-btn:hover {
+    color: #fff;
+}
+
+.data-tag {
+    font-size: 0.7rem;
+    color: #5793e6;
+}
+
+.modal-card h2 {
+    margin: 8px 0 14px;
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+.modal-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #fff;
+    margin-bottom: 22px;
+}
+
+.delete-btn {
+    background: transparent;
+    border: 1px solid rgb(235, 70, 70);
+    color: rgb(235, 70, 70);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.delete-btn:hover {
+    background: rgb(235, 70, 70);
+    color: #fff;
+}
