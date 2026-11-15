@@ -144,7 +144,7 @@ body {
     color: #000;
 }
 
-.modal {
+.mod {
     position: fixed;
     inset: 0;
     background: rgba(12, 17, 31, 0.8);
@@ -155,11 +155,11 @@ body {
     z-index: 50;
 }
 
-.modal.hidden {
+.mod.hidden {
     display: none;
 }
 
-.modal-card {
+.mod-card {
     position: relative;
     background: #101529;
     border: 1px solid #5793e6;
@@ -189,20 +189,20 @@ body {
     color: #5793e6;
 }
 
-.modal-card h2 {
+.mod-card h2 {
     margin: 8px 0 14px;
     font-size: 1.3rem;
     color: #fff;
 }
 
-.modal-card p {
+.mod-card p {
     font-size: 0.9rem;
     line-height: 1.5;
     color: #fff;
     margin-bottom: 22px;
 }
 
-.delete-btn {
+.del-btn {
     background: transparent;
     border: 1px solid rgb(235, 70, 70);
     color: rgb(235, 70, 70);
@@ -213,7 +213,7 @@ body {
     transition: background 0.2s ease, color 0.2s ease;
 }
 
-.delete-btn:hover {
+.del-btn:hover {
     background: rgb(235, 70, 70);
     color: #fff;
 }
