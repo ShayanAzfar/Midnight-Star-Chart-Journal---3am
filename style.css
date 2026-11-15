@@ -155,7 +155,7 @@ body {
     z-index: 50;
 }
 
-.modal-hidden {
+.modal.hidden {
     display: none;
 }
 
@@ -184,7 +184,7 @@ body {
     color: #fff;
 }
 
-.data-tag {
+.date-tag {
     font-size: 0.7rem;
     color: #5793e6;
 }
